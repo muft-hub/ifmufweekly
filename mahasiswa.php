@@ -1,5 +1,28 @@
-<html>
+<?php
+$koneksi = mysqli_connect("localhost", "root", "root", "mufweekly-ife");
 
+if($koneksi){
+  echo "KONEKSI BERHASIL";
+}
+
+$query = "SELECT * from Mahasiswa";
+
+$result = mysqli_query($koneksi, $query);
+
+//// require "fungsi.php";
+//// $query = "SELECT * from mahasiswa";
+//// tampildata($qmahasiswa);
+
+////$mhs = mysqli_fetch_assoc($result);
+////{
+////var_dump($mhs);
+////}
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Data Mahasiswa</title>
@@ -22,10 +45,10 @@
 <body>
  <table border="1" align="center" cellpadding="10">
     <tr align="center">
-      <td><a href="index.html">Home</a></td>
-      <td><a href="profile.html">Profile</a></td>
-      <td><a href="mahasiswa.html">Data Mahasiswa</a></td>
-      <td><a href="contact.html">Contact</a></td>
+      <td><a href="index.php">Home</a></td>
+      <td><a href="profile.php">Profile</a></td>
+      <td><a href="mahasiswa.php">Data Mahasiswa</a></td>
+      <td><a href="contact.php">Contact</a></td>
     </tr>
   </table>
   
@@ -34,25 +57,44 @@
 
 <table class="latihan-table" border="1" cellpadding="20" style="margin-top: 20px;">
   <tr>
-    <th rowspan="2">Nama</th>
-    <th rowspan="2">Foto</th>
-    <th rowspan="2">NIM</th>
-    <th colspan="3">Nilai</th>
+    <th>Nama</th>
+    <th>Nim</th>
+    <th>Program Studi</th>
+    <th>Email</th>
+    <th>No.HP</th>
+    <th>Foto</th>
+    <th>Aksi</th>
+
   </tr>
-  <tr>
-    <th>UTS</th>
-    <th>UAS</th>
-    <th>Tugas</th>
-  </tr>
+<?php
+while($mhs = mysqli_fetch_assoc($result))
+  {
+?>
 
   <tr>
-    <td>Amba</td>
-    <td><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMHs8IijGQbElzCqzeTlr6Tz-tAAGgA9HXlQ&s" width="50"></td>
-    <td>67</td>
-    <td>12</td>
-    <td>34</td>
-    <td>5</td>
+    <td><?php echo $mhs["nama"] ?></td>
+    <td><?php echo $mhs["nim"] ?></td>
+    <td><?= $mhs["jurusan"] ?></td>
+    <td>kirky@epstein.com</td>
+    <td>08676767676767</td>
+    <td>kirk.jpg</td>
+ <td>
+        <a href="editdata.php?id=<?php echo $data['id']; ?>">
+            <button type="button" style="background-color: #007bff; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+                Edit
+            </button>
+        </a>
+
+        <a href="hapusdata.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data mahasiswa bernama <?php echo $data['nama']; ?>?');">
+            <button type="button" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+                Hapus
+            </button>
+        </a>
+    </td>
   </tr>
+<?php
+  }
+  ?>
 
   <tr>
     <td>Rusdi</td>

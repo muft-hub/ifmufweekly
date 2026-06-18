@@ -5,7 +5,7 @@
     </head>
     <body>
         <h2> Tambah Data Mahasiswa</h2>
-        <form action="mahasiswa.html" method="post">
+        <form action="mahasiswa.php" method="post">
             <table>
                 <tr>
                     <td> <label for="nama">Nama:</label></td>
@@ -41,6 +41,24 @@
                 </tr>
             
         </form>
-        <a href="mahasiswa.html">Back</a>
+        <a href="mahasiswa.php">Back</a>
+    <?php 
+    require 'fungsi.php';
+    $nama = $_POST['nama'];
+    $nim = $_POST['nim'];
+    $jurusan = $_POST['jurusan'];
+    $email = $_POST['email'];
+    $nohp = $_POST['nohp'];
+    
+    if(isset($_POST['kirim']))
+    {
+        $query = "INSERT INTO mahasiswa (nama, nim, jurusan, email, nohp, foto)"
+        VALUES ('$nama', '$nim')
+
+        mysqli_query($koneksi, $query);
+    }
+    ?>
+    }
+
     </body>
 </html>

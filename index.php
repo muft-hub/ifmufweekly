@@ -9,11 +9,11 @@
           <body style="font-family: Arial;">
   <table border="2" align="center" cellpadding="10">
     <tr align="center">
-      <td><a href="index.html">Home</a></td>
-      <td><a href="profile.html">Profile</a></td>
-      <td><a href="mahasiswa.html">Data Mahasiswa</a></td>
-      <td><a href="contact.html">Contact</a></td>
-      <td><a href="tambahdata.html">Tambah Data</a></td>
+      <td><a href="index.php">Home</a></td>
+      <td><a href="profile.php">Profile</a></td>
+      <td><a href="mahasiswa.php">Data Mahasiswa</a></td>
+      <td><a href="contact.php">Contact</a></td>
+      <td><a href="tambahdata.php">Tambah Data</a></td>
     </tr>
   </table>
 
@@ -31,7 +31,7 @@
         Data Mahasiswa
      </h2>
 
-<a href="tambahdata.html">
+<a href="tambahdata.php">
 <button>tambah data</button>
 </a>
 <table class="latihan-table" border="1" cellpadding="20" style="margin-top: 20px;">
