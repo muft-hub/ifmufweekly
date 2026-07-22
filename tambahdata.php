@@ -1,3 +1,8 @@
+<?php 
+
+require 'fungsi.php'
+
+if isset
 <html lang="en">
     <head>
         <meta charset="UTF-8">
